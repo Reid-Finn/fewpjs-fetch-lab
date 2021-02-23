@@ -1,7 +1,14 @@
+let baseURL = 'https://anapioficeandfire.com/api/books'
+
+document.addEventListener('DOMContentLoaded', function() {
+  fetchBooks()
+})
+
 function fetchBooks() {
-
+  return fetch(baseURL)
+    .then(resp => resp.json())
+    .then(json => renderBooks(json))
 }
-
 function renderBooks(books) {
   const main = document.querySelector('main')
   books.forEach(book => {
